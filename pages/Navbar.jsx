@@ -11,7 +11,7 @@ const Navbar = () => {
   const [type, setType] = useState('restaurants');
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 shadow-md">
+    <nav className="bg-white border-gray-200 dark:bg-gray-900 shadow-md tracking-wide">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="#" className="flex items-center">
               <Image className="h-8 w-12 object-cover" src={logo} alt='logo'/>
