@@ -2,11 +2,13 @@ import React,{ useState } from 'react'
 import logo from '../public/logo.png'
 import Image from 'next/image'
 import Link from 'next/link'
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 
 
 const Navbar = () => {
 
   const [hamburg, setHamburg] = useState(false)
+  const [type, setType] = useState('restaurants');
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 shadow-md">
@@ -31,14 +33,22 @@ const Navbar = () => {
                 <li  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">About</li>
               </Link>
               <Link href="/TouristSpots">
-                <li  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Tourist Spots</li>
+                <li  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Major Spots</li>
               </Link>
               <Link href="/Restaurants">
-                <li  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Restaurants</li>
+                <li  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Map</li>
               </Link>
-              <Link href="/Temples">
+              {/* <Link href="/Temples">
                 <li  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Temples</li>
-              </Link>
+              </Link> */}
+              {/* <FormControl sx={{border:0 }} className='border-0 block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 '>
+                <Select id="type" value={type} onChange={(e) => setType(e.target.value)}>
+                  <MenuItem value="restaurants">Restaurants</MenuItem>
+                  <MenuItem value="hotels">Hotels</MenuItem>
+                  <MenuItem value="temples">Temples</MenuItem>
+                  <MenuItem value="touristSpots">Tourist Spots</MenuItem>
+                </Select>
+              </FormControl> */}
             </ul>
           </div>
 

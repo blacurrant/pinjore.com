@@ -1,14 +1,10 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import { useState } from 'react'
 import Navbar from './Navbar'
 import Home from './Home'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Index() {
 
-  const [darkmode, setDarkmode] = useState(false);
 
   return (
     <main className='h-screen'>
@@ -20,7 +16,7 @@ export default function Index() {
       <Home />
 
       <section className='h-screen container mx-auto flex flex-col justify-center items-center bg-gray-200'>
-        about pinjore
+        aboutpinjore
       </section>
 
 
