@@ -1,8 +1,9 @@
 import React from 'react'
+import MajorSpots from './MajorSpots'
 
 const Temples = () => {
   return (
-    <div id='y'> Temples</div>
+    <MajorSpots>Temples</MajorSpots>
   )
 }
 
