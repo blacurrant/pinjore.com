@@ -21,15 +21,17 @@ const Sidebar = () => {
 
     const router = useRouter();
 
+
     const activeMenu = useMemo( () => menuItems.find((menu) => menu.link === router.pathname), [router.pathname]);
+    //TypeError: Cannot read properties of undefined (reading 'id')
 
 
-    const sidebarClasses = classNames(
-            " flex flex-col items-center tracking-wide gap-2 py-2 px-1 md:px-2 text-xl md:text-3xl font-semibold bg-gray-100 drop-shadow-md transition-all ease-in-out duration-200",
-            { 'md:w-[5%] w-[12%]':[!toggleCollapse],
-              'md:w-[30%] w-[50%]':[toggleCollapse]
-        },
-        );
+    // const sidebarClasses = classNames(
+    //         " flex flex-col items-center tracking-wide gap-2 py-2 px-1 md:px-2 text-xl md:text-3xl font-semibold bg-gray-100 drop-shadow-md transition-all ease-in-out duration-200",
+    //         { 'md:w-[5%] w-[12%]':[!toggleCollapse],
+    //           'md:w-[30%] w-[50%]':[toggleCollapse]
+    //     },
+    //     );
 
     const getNavItemClasses = (menu) => {
         return classNames(
@@ -49,7 +51,7 @@ const Sidebar = () => {
     >
         <div className="w-full h-screen bg-gray-100 drop-shadow-md ">
             <div className='flex items-center justify-between relative'>
-                <div className={` justify-end mx-2 my-2 ${!toggleCollapse ? 'rotate-180': 'rotate-0'}}`}>
+                <div className=" justify-end mx-2 my-2">
                     <button className='text-2xl font-bold' onClick={onMouseOver}>
                         <ion-icon name="chevron-forward-circle-outline"></ion-icon>            
                     </button>
@@ -59,7 +61,7 @@ const Sidebar = () => {
                 {menuItems.map(({...menu}) => {
                     // const classes= getNavItemClasses(menu)
                     return (
-                        <div key={menu.id} className={getNavItemClasses(...menu)}>
+                        <div key={menu.id} className={getNavItemClasses(menu)}>
                             <Link className='flex flex-row gap-2 md:gap-4' href={menu.link}>
                                     <div className='text-lg md:text-2xl font-bold'>
                                         <h1>{menu.icon}</h1>
