@@ -3,7 +3,7 @@ import MajorSpots from './MajorSpots'
 
 const Hotels = () => {
   return (
-    <MajorSpots>Restaurants</MajorSpots>
+    <MajorSpots>Hotels</MajorSpots>
   )
 }
 

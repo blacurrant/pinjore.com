@@ -19,6 +19,11 @@ const Sidebar = () => {
         setToggleCollapse(!toggleCollapse);
     };
 
+    const router = useRouter();
+
+    const activeMenu = useMemo( () => menuItems.find((menu) => menu.link === router.pathname), [router.pathname]);
+
+
     const sidebarClasses = classNames(
             " flex flex-col items-center tracking-wide gap-2 py-2 px-1 md:px-2 text-xl md:text-3xl font-semibold bg-gray-100 drop-shadow-md transition-all ease-in-out duration-200",
             { 'md:w-[5%] w-[12%]':[!toggleCollapse],
@@ -26,13 +31,23 @@ const Sidebar = () => {
         },
         );
 
+    const getNavItemClasses = (menu) => {
+        return classNames(
+            " border border-gray-200 drop-shadow-sm rounded-md w-[100%] py-3 md:py-5 px-2 md:px-10",
+            {
+            ["bg-black text-gray-100"]: activeMenu.id === menu.id,
+            }
+        );
+        };
+
   return (
     <div 
         className='h-screen'
         onMouseEnter={onMouseOver}
         onMouseLeave={onMouseOver}
+        style={{ transition: "width 300ms cubic-bezier(0.2, 0, 0, 1) 0s" }}
     >
-        <div className="w-full h-screen bg-gray-100 drop-shadow-md  transition-all ease-in-out duration-500">
+        <div className="w-full h-screen bg-gray-100 drop-shadow-md ">
             <div className='flex items-center justify-between relative'>
                 <div className={` justify-end mx-2 my-2 ${!toggleCollapse ? 'rotate-180': 'rotate-0'}}`}>
                     <button className='text-2xl font-bold' onClick={onMouseOver}>
@@ -42,8 +57,9 @@ const Sidebar = () => {
             </div>
             <div className='flex flex-col gap-1 md:gap-2 px-1 items-start'>
                 {menuItems.map(({...menu}) => {
+                    const classes= getNavItemClasses(menu)
                     return (
-                        <div key={menu.key} className=" border border-gray-200 drop-shadow-sm rounded-md w-[100%] py-3 md:py-5 px-2 md:px-10">
+                        <div key={menu.key} className={classes}>
                             <Link className='flex flex-row gap-2 md:gap-4' href={menu.link}>
                                     <div className='text-lg md:text-2xl font-bold'>
                                         <h1>{menu.icon}</h1>
