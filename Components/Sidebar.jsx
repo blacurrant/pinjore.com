@@ -57,9 +57,9 @@ const Sidebar = () => {
             </div>
             <div className='flex flex-col gap-1 md:gap-2 px-1 items-start'>
                 {menuItems.map(({...menu}) => {
-                    const classes= getNavItemClasses(menu)
+                    // const classes= getNavItemClasses(menu)
                     return (
-                        <div key={menu.key} className={classes}>
+                        <div key={menu.id} className={getNavItemClasses(...menu)}>
                             <Link className='flex flex-row gap-2 md:gap-4' href={menu.link}>
                                     <div className='text-lg md:text-2xl font-bold'>
                                         <h1>{menu.icon}</h1>
