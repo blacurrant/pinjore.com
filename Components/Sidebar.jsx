@@ -36,10 +36,10 @@ const Sidebar = () => {
 
     const getNavItemClasses = (menu) => {
         return classNames(
-            " border border-gray-200 drop-shadow-sm rounded-md w-[100%] py-3 md:py-5 px-2 md:px-10",
-            {
-            ["bg-black text-gray-100"]: activeMenu?.id == menu?.id,
-            }
+            " border border-gray-200 drop-shadow-sm rounded-md w-[100%] py-3 md:py-5 px-2 md:px-10 hover:bg-black hover:text-gray-100",
+            // {
+            // ["bg-black text-gray-100"]: activeMenu?.id == menu?.id,
+            // }
         );
         };
 
