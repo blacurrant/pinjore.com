@@ -3,12 +3,15 @@ import logo from '../public/logo.png'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
+import classNames from 'classnames'
 
 
 const Navbar = () => {
 
   const [hamburg, setHamburg] = useState(false)
   const [type, setType] = useState('restaurants');
+
+  const navbarClasses = classNames("block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0")
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 shadow-md tracking-wide">
@@ -26,17 +29,17 @@ const Navbar = () => {
           <div className="w-full md:block md:w-auto" id="navbar-default">
             <ul
               className= {`z-10 absolute md:static font-medium flex -mt-2 flex-col p-4 bg-opacity-70 md:p-0 border border-gray-100 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white  left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in-out ${hamburg ? 'top-20 ':'top-[-490px]'}`}>
-              <Link href="/Home">
-                <li  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Home</li>
+              <Link onClick={()=> setHamburg(!hamburg)} href="/Home">
+                <li  className={navbarClasses}>Home</li>
               </Link>
-              <Link href="/About">
-                <li  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">About</li>
+              <Link onClick={()=> setHamburg(!hamburg)} href="/About">
+                <li  className={navbarClasses}>About</li>
               </Link>
-              <Link href="/MajorSpots">
-                <li  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Major Spots</li>
+              <Link onClick={()=> setHamburg(!hamburg)} href="/MajorSpots">
+                <li  className={navbarClasses}>Major Spots</li>
               </Link>
-              <Link href="/IntegrateMap">
-                <li  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Map</li>
+              <Link onClick={()=> setHamburg(!hamburg)} href="/IntegrateMap">
+                <li  className={navbarClasses}>Map</li>
               </Link>
               {/* <Link href="/Temples">
                 <li  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Temples</li>
